@@ -1,0 +1,47 @@
+article {
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin: 8px 0;
+
+    img {
+        width: 55px;
+        object-fit: contain;
+        margin: 0 5px;
+        border-radius: 5px;
+    }
+
+    h5 {
+        font-weight: 600;
+        font-size: 1rem;
+
+    }
+
+    p {
+        font-size: 0.8rem;
+        margin-top: 0;
+        color: var(--ion-color-medium);
+    }
+}
+
+.califications {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 65px;
+    margin-bottom: 6px;
+}
+
+ion-chip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0.7);
+
+    p {
+        margin: 5px 0 0 0 ;
+    }
+}
