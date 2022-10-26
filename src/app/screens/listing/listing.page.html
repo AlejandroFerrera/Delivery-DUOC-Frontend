@@ -1,0 +1,20 @@
+<ion-content>
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>Menu</h1>
+    <div class="avatar">
+      <ion-img src="assets\img\avatars\girl.jpg"></ion-img>
+    </div>
+  </div>
+
+  <!-- SEARCHBAR -->
+  <app-searchbar></app-searchbar>
+
+  <!-- RESTAURANTS -->
+
+  <h1 class="list-header">Restaurantes:</h1>
+  <div class="restaurants-list">
+    <app-restaurant-card *ngFor="let restaurant of restaurants" [restaurant]="restaurant"></app-restaurant-card>
+  </div>
+</ion-content>

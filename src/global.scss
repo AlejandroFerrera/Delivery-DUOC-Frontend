@@ -16,7 +16,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
@@ -24,3 +24,28 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+@import "./theme/fonts.scss";
+
+* {
+  font-family: Gilroy;
+}
+
+ion-searchbar {
+
+  .searchbar-input-container {
+    input {
+      padding-top: 18px !important;
+      padding-bottom: 18px !important;
+      padding-left: 40px !important;
+      font-size: 18px !important;
+    }
+
+    .searchbar-search-icon {
+      top: 6px !important;
+      width: 25px;
+      height: 25px;
+      padding-left: 5px !important;
+      transform: scale(0.9);
+    }
+  }
+}
