@@ -1,5 +1,4 @@
 <ion-content>
-
   <!-- HEADER -->
   <div class="header">
     <h1>Menu</h1>
@@ -15,6 +14,10 @@
 
   <h1 class="list-header">Restaurantes:</h1>
   <div class="restaurants-list">
-    <app-restaurant-card *ngFor="let restaurant of restaurants" [restaurant]="restaurant"></app-restaurant-card>
+    <app-restaurant-card
+      *ngFor="let restaurant of restaurants"
+      [restaurant]="restaurant"
+      (clicked)="goToDetailPage(restaurant.id)"
+    ></app-restaurant-card>
   </div>
 </ion-content>

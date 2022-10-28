@@ -1,50 +1,57 @@
 article {
-    display: flex;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    margin: 8px 0;
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin: 8px 0;
 
-    img {
-        width: 55px;
-        object-fit: contain;
-        margin: 0 5px;
-        border-radius: 5px;
-    }
+  img {
+    width: 55px;
+    object-fit: contain;
+    margin: 0 5px;
+    border-radius: 5px;
+  }
 
-    .info {
-        width: 70%;
-    }
-
-    h5 {
-        font-weight: 600;
-        font-size: 0.8rem;
-    }
+  .info {
+    width: 70%;
 
     p {
-        font-size: 0.8rem;
-        margin-top: 0;
-        color: var(--ion-color-medium);
+      font-size: 0.8rem;
+      margin-top: 0;
+      color: var(--ion-color-medium);
     }
+  }
+
+  h5 {
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
 }
 
 .califications {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 65px;
-    margin-bottom: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 65px;
+  margin-bottom: 6px;
+
+  p {
+    color: black;
+    padding-bottom: 2px;
+    font-weight: bold;
+  }
 }
 
 ion-chip {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: scale(0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0.7);
 
-    p {
-        margin: 5px 0 0 0 ;
-    }
+  p {
+    margin: 5px 0 0 0;
+  }
 }

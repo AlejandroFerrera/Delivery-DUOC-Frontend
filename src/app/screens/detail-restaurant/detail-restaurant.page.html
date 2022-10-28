@@ -1,0 +1,31 @@
+<ion-content>
+  <header
+    class="header"
+    [ngStyle]="{'background-image': 'url(' + restaurant.image + ')'}"
+  >
+    <ion-buttons>
+      <ion-button routerLink="/home/listing">
+        <ion-icon color="light" name="arrow-back-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons>
+      <ion-button>
+        <ion-icon color="light" name="heart-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </header>
+
+  <!-- FOOD DETAIL CARD -->
+
+  <article class="card">
+    <header>
+      <h1>{{ restaurant.title}}</h1>
+
+      <ion-chip color="warning">
+        <ion-icon name="star"></ion-icon>
+        <p>{{restaurant.calification}}</p>
+      </ion-chip>
+    </header>
+  </article>
+</ion-content>

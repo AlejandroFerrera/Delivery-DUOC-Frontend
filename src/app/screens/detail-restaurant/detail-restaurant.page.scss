@@ -1,0 +1,70 @@
+ion-content {
+  position: relative;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    height: 30vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .header:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  ion-button {
+    height: 60px;
+    width: 60px;
+
+    ion-icon {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: blueviolet;
+      position: fixed;
+    }
+  }
+
+  .card {
+    height: 75%;
+    width: 100%;
+    background: #fff;
+    position: absolute;
+    bottom: 0;
+    padding: 1rem;
+
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      h1 {
+        font-weight: bold;
+        width: 80%;
+        margin: 10px 0;
+      }
+
+      ion-chip {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        height: 30px;
+        transform: scale(0.7);
+        margin: 0;
+
+        p {
+          color: rgb(28, 28, 28);
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
