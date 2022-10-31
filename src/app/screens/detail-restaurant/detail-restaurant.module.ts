@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { DetailRestaurantPageRoutingModule } from './detail-restaurant-routing.module';
 
 import { DetailRestaurantPage } from './detail-restaurant.page';
+import { ProductCardModule } from 'src/app/components/product-card/product-card.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DetailRestaurantPageRoutingModule
+    DetailRestaurantPageRoutingModule,
+    ProductCardModule,
   ],
-  declarations: [DetailRestaurantPage]
+  declarations: [DetailRestaurantPage],
 })
 export class DetailRestaurantPageModule {}

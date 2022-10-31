@@ -18,7 +18,7 @@
 
   <!-- FOOD DETAIL CARD -->
 
-  <article class="card">
+  <article class="info">
     <header>
       <h1>{{ restaurant.title}}</h1>
 
@@ -27,22 +27,15 @@
         <p>{{restaurant.calification}}</p>
       </ion-chip>
     </header>
-    <ion-list>
-      <ion-item>
-        <ion-label>Pokémon Yellow</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Mega Man X</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>The Legend of Zelda</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Pac-Man</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Super Mario World</ion-label>
-      </ion-item>
-    </ion-list>
+
+    <!-- PRODUCTS -->
+
+    <div class="product-list">
+      <ion-list>
+        <ion-item *ngFor="let product of products" lines="full">
+          <app-product-card [product]="product"> </app-product-card>
+        </ion-item>
+      </ion-list>
+    </div>
   </article>
 </ion-content>

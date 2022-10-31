@@ -1,0 +1,58 @@
+
+
+.card {
+  width: 100%;
+  padding: .5rem .5rem;
+  background: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+
+  ion-img {
+    max-width: 30%;
+    flex-grow: 1;
+  }
+
+  .card-content {
+    padding-left: 10px;
+    width: 50%;
+    flex-grow: 2;
+
+
+    .title {
+      font-weight: 700;
+      font-size: .7rem;
+      margin-bottom: 0.2rem;
+      color: #1d1d1d;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .subtitle {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #ffb800;
+      margin-top: 0;
+    }
+  }
+
+  ion-buttons {
+    flex-grow: 1;
+    margin-left: 15px;
+  }
+
+  ion-button {
+    --background: #6b45bc;
+    font-weight: 700;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+
+    --padding-start: 0;
+    --padding-end: 0;
+    --padding-top: 0;
+    --padding-bottom: 0;
+  }
+}

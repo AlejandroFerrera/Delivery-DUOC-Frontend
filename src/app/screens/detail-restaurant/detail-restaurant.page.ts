@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Product } from 'src/app/models/product';
 import { Restaurant } from 'src/app/models/restaurant';
+import { ProductService } from 'src/app/services/product.service';
 import { RestaurantsService } from 'src/app/services/restaurants.service';
 
 @Component({
@@ -11,15 +13,19 @@ import { RestaurantsService } from 'src/app/services/restaurants.service';
 export class DetailRestaurantPage implements OnInit {
   id: number;
   restaurant: Restaurant;
+  products: Product[] = [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private restaurantService: RestaurantsService
+    private restaurantService: RestaurantsService,
+    private productService: ProductService
   ) {
     this.id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
   }
 
   ngOnInit() {
     this.restaurant = this.restaurantService.getRestaurant(this.id);
+    this.products = this.productService.getProducts();
+    console.log(this.products);
   }
 }

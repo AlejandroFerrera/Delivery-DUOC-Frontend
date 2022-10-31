@@ -17,8 +17,8 @@ import { RestaurantCardModule } from 'src/app/components/restaurant-card/restaur
     IonicModule,
     ListingPageRoutingModule,
     SearchbarModule,
-    RestaurantCardModule
+    RestaurantCardModule,
   ],
-  declarations: [ListingPage]
+  declarations: [ListingPage],
 })
 export class ListingPageModule {}

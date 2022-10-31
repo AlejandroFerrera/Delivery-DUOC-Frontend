@@ -1,0 +1,13 @@
+<article class="card">
+  <ion-img [src]="product.image"></ion-img>
+
+  <div class="card-content">
+    <h3 class="title">{{ product.title }}</h3>
+    <h2 class="subtitle">{{ product.price | currency: "CLP" }}</h2>
+  </div>
+  <ion-buttons>
+    <ion-button>
+      <ion-icon slot="icon-only" name="add"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</article>
