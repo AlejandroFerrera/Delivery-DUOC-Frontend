@@ -37,7 +37,7 @@ export class RestaurantsService {
         logo:
           'https://www.mcdonalds.cl/images/layout/mcdonalds-logo-bg-red.png',
           image:
-          'https://www.unileverfoodsolutions.com.mx/tendencias/hellmanns/hamburguesas/tendencias-hamburguesas/jcr:content/parsys/set1/row2/span12/image.img.png/1644307577616.png',
+          'https://cronicaglobal.elespanol.com/uploads/s1/24/50/09/9/hamburguesa.jpeg',
         calification: 2.3,
         favorite: false,
       },

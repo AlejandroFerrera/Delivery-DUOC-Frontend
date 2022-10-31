@@ -1,9 +1,22 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>cart</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  <h3 class="title" *ngIf="(cartItems$|async).length" >
+    <span>{{ (cartItems$|async).length}}</span> producto(s) en el carro
+  </h3>
 
+  <!-- CART ITEMS -->
+  <ion-list lines="none">
+    <ion-item *ngFor="let item of cartItems$|async">
+      <app-cart-item
+        [item]="item"
+        (increse)="onIncrease(item)"
+        (decrase)="onDecrease(item)"
+      ></app-cart-item>
+    </ion-item>
+  </ion-list>
+
+  <!-- EMPTY CART -->
+  <div class="empty-cart" *ngIf="!(cartItems$|async).length">
+    <ion-icon name="cart"></ion-icon>
+    <p>No has agregado productos</p>
+  </div>
 </ion-content>

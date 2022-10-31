@@ -7,9 +7,29 @@
     </ion-buttons>
   </div>
   <!-- PRODUCT DETAIL CARD -->
+
   <div class="card">
     <div class="image">
-      <ion-img [src]="product.image"></ion-img>
+      <img [src]="product.image">
     </div>
+
+    <div class="card-content">
+      <div class="card-title">
+        <h1 class="ion-no-margin">{{ product.title }}</h1>
+        <p class="ion-no-margin">{{ product.price }}</p>
+      </div>
+    </div>
+
+    <div class="rates">
+      <app-badge [icon]="'hourglass-outline'" [text]="'31m'"></app-badge>
+      <app-badge [icon]="'star-outline'" [text]="'4.5'"></app-badge>
+    </div>
+
+    <div class="about">
+      <h1>Descripción</h1>
+      <p>{{ product.description }}</p>
+    </div>
+
+    <app-button (click)="addItemToCart()">Agregar al carro</app-button>
   </div>
 </ion-content>

@@ -11,7 +11,7 @@ export class ProductService {
       title: 'Pizza 4 en 1',
       price: 12500,
       description:
-        '¿Una pizza que lo tenga todo? ¡la tenemos! 1/4 de pepperoni, 1/4 de jamón con pimientos verdes, 1/4 de puro queso y 1/4 de champiñones con aceitunas negras, con borde relleno de queso mozzarella.',
+        '¿Una pizza que lo tenga todo? ¡la tenemos! 1/4 de pepperoni, 1/4 de jamón con pimientos verdes, 1/4 de puro queso y 1/4 de champiñones con aceitunas negras.',
       image:
         'https://images.rappi.cl/products/tmp51051472298589311688515287.png?e=webp&d=800x800&q=80',
     },
