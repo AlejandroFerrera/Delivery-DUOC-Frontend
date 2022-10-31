@@ -1,0 +1,31 @@
+ion-content {
+  --background: #6b45bc;
+  position: relative;
+
+  .header {
+
+    ion-button {
+      height: 60px;
+      width: 60px;
+
+      ion-icon {
+        font-size: 1.8rem;
+      }
+    }
+  }
+
+  .card {
+    height: 75%;
+    width: 100%;
+    background: #fff;
+    position: absolute;
+    bottom: 0;
+    border-radius: 3rem 3rem 0 0;
+    padding: 2rem;
+    padding-top: .5rem;
+
+    .img {
+      margin-top: 0;
+    }
+  }
+}

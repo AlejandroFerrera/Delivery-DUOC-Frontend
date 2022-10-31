@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { Restaurant } from 'src/app/models/restaurant';
 import { ProductService } from 'src/app/services/product.service';
@@ -18,7 +18,8 @@ export class DetailRestaurantPage implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private restaurantService: RestaurantsService,
-    private productService: ProductService
+    private productService: ProductService,
+    private router: Router
   ) {
     this.id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
   }
@@ -27,5 +28,11 @@ export class DetailRestaurantPage implements OnInit {
     this.restaurant = this.restaurantService.getRestaurant(this.id);
     this.products = this.productService.getProducts();
     console.log(this.products);
+  }
+
+  goToDetailPage(id: number) {
+    this.router.navigate(['detail-product', id], {
+      relativeTo: this.activatedRoute,
+    });
   }
 }

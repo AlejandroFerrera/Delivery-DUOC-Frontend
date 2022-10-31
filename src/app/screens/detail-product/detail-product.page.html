@@ -1,0 +1,15 @@
+<ion-content>
+  <div class="header">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" color="light" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </div>
+  <!-- PRODUCT DETAIL CARD -->
+  <div class="card">
+    <div class="image">
+      <ion-img [src]="product.image"></ion-img>
+    </div>
+  </div>
+</ion-content>
