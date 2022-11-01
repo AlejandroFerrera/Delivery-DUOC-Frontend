@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!--formulario-->
+<ion-content>
+  <!--logo-->
+  <div class="img" style="margin-top:30px;" >
+    <ion-img class="ion-text-center" style="height: 150px" src="assets/img/delivery.png" alt=""></ion-img>
+    </div>
+  <ion-card  style="margin-top:30px;">
+    <h5 class="ion-text-center">Ingresa tus datos</h5>
+    <ion-card-content>
+    <!--nombre-->
+    <ion-item >
+      <ion-label position="floating"> Nombre</ion-label>
+      <ion-input type="text" maxlength="30"></ion-input>
+      <ion-note slot="helper">Ingresa tu nombre</ion-note>
+      <ion-note slot="error">Ingresa tu nombre</ion-note>
+    </ion-item>
+    <!--correo-->
+    <ion-item >
+    <ion-label position="floating">Correo</ion-label>
+    <ion-input type="Correo" ngModel email></ion-input>
+    <ion-note slot="helper"> Ingresa tu correo</ion-note>
+    <ion-note slot="error">Correo inválido</ion-note>
+    </ion-item>
+    <!--contraseña-->
+    <ion-item>
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input type="Password"></ion-input>
+    <ion-note slot="helper">Ingrese contraseña</ion-note>
+    <ion-note slot="error">Contraseña incorrecta</ion-note>
+    </ion-item>
+  </ion-card-content>
+</ion-card>
+    <br>
+    <!--registrar-->
+    <div class="ion-text-center">
+    <ion-button (click)="registrar()" class="ingresar"color="warning" style="margin-top:10px;">REGISTRAR</ion-button>
+    </div>
+
+</ion-content>
+
+
+

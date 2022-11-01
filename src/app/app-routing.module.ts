@@ -18,9 +18,19 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () =>
       import('./home/home.module').then((m) => m.HomePageModule),
-  },  {
+  },
+  {
     path: 'detail-product',
     loadChildren: () => import('./screens/detail-product/detail-product.module').then( m => m.DetailProductPageModule)
+  },
+  
+  {
+    path: 'login',
+    loadChildren: () => import('./screens/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'registro',
+    loadChildren: () => import('./screens/registro/registro.module').then( m => m.RegistroPageModule)
   },
 
 ];
