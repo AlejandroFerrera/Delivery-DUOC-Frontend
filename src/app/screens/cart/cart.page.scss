@@ -1,6 +1,7 @@
 ion-content {
   --padding-top: 1.6rem;
-  --padding-end: 0.5rem;
+  --padding-start: 1rem;
+  --padding-end: 1rem;
 
   .title {
     font-weight: 700;
@@ -42,5 +43,26 @@ ion-content {
       font-size: 1.5rem;
       text-align: center;
     }
+  }
+
+  app-button {
+    display: block;
+
+    span {
+      margin-left: 10px;
+      font-size: 1rem;
+    }
+  }
+
+  .checkout {
+    h4 {
+      font-weight: 600;
+
+      span {
+        color: #ffb800;
+      }
+    }
+
+
   }
 }

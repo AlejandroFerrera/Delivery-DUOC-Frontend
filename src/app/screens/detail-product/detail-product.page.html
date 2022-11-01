@@ -16,7 +16,7 @@
     <div class="card-content">
       <div class="card-title">
         <h1 class="ion-no-margin">{{ product.title }}</h1>
-        <p class="ion-no-margin">{{ product.price }}</p>
+        <p class="ion-no-margin">{{ product.price | currency: 'CLP' }}</p>
       </div>
     </div>
 

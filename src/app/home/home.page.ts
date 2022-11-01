@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  cartQuantity$: Observable<number>;
 
-  constructor() { }
+  constructor(private cartService: CartService) {}
 
   ngOnInit() {
+    this.cartQuantity$ = this.cartService.getTotalQuantity();
   }
-
 }

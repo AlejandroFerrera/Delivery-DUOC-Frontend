@@ -11,6 +11,7 @@
     </ion-tab-button>
     <ion-tab-button tab="cart">
       <ion-icon name="cart-outline" size="small"></ion-icon>
+      <ion-badge>{{ cartQuantity$|async }}</ion-badge>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>

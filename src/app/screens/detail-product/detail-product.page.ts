@@ -44,7 +44,12 @@ export class DetailProductPage implements OnInit {
       quantity: 1,
     };
 
-    this.cartService.addToCart(cartItem);
+    const isInCart = this.cartService.isInCart(this.id);
+
+    isInCart
+      ? this.cartService.changeQty(1, this.id)
+      : this.cartService.addToCart(cartItem);
+
     this.presentToast();
   }
 

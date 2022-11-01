@@ -1,6 +1,6 @@
 <ion-content>
-  <h3 class="title" *ngIf="(cartItems$|async).length" >
-    <span>{{ (cartItems$|async).length}}</span> producto(s) en el carro
+  <h3 class="title" *ngIf="(cartItems$|async).length">
+    <span>{{ cartQuantity$ | async }}</span> producto(s) en el carro
   </h3>
 
   <!-- CART ITEMS -->
@@ -18,5 +18,12 @@
   <div class="empty-cart" *ngIf="!(cartItems$|async).length">
     <ion-icon name="cart"></ion-icon>
     <p>No has agregado productos</p>
+  </div>
+
+  <!-- CHECKOUT BUTTON -->
+  <div *ngIf="(cartItems$|async).length" class="checkout">
+    <h4 class="ion-text-center">Total:<span> {{ totalAmount$|async |currency: 'CLP' }}</span></h4>
+    <app-button>Ir a pagar</app-button>
+
   </div>
 </ion-content>
