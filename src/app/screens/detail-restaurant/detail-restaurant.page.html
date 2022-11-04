@@ -33,7 +33,11 @@
     <div class="product-list">
       <ion-list>
         <ion-item *ngFor="let product of products" lines="full">
-          <app-product-card [product]="product" (clicked)="goToDetailPage(product.id)"> </app-product-card>
+          <app-product-card
+            [product]="product"
+            (clicked)="goToDetailPage(product.id)"
+          >
+          </app-product-card>
         </ion-item>
       </ion-list>
     </div>

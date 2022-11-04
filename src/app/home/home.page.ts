@@ -8,11 +8,14 @@ import { CartService } from '../services/cart.service';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  cartQuantity$: Observable<number>;
+  cartQuantity: number;
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService) {
+  }
 
   ngOnInit() {
-    this.cartQuantity$ = this.cartService.getTotalQuantity();
+    this.cartService
+      .getTotalQuantity()
+      .subscribe((number) => (this.cartQuantity = number));
   }
 }

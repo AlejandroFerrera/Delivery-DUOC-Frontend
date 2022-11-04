@@ -11,9 +11,8 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CartPage implements OnInit {
   cartItems$: Observable<CartItem[]>;
-  cartQuantity$: Observable<number>;
+  cartQuantity: number;
   totalAmount$: Observable<number>;
-
 
   constructor(
     private cartService: CartService,
@@ -23,7 +22,9 @@ export class CartPage implements OnInit {
   ngOnInit() {
     this.cartItems$ = this.cartService.getCart();
     this.totalAmount$ = this.cartService.getTotalAmount();
-    this.cartQuantity$ = this.cartService.getTotalQuantity();
+    this.cartService
+      .getTotalQuantity()
+      .subscribe((number) => (this.cartQuantity = number));
   }
 
   onIncrease(item: CartItem) {
@@ -31,7 +32,6 @@ export class CartPage implements OnInit {
   }
 
   onDecrease(item: CartItem) {
-
     if (item.quantity === 1) {
       this.removeFromCart(item);
       return;
