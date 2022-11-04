@@ -9,17 +9,21 @@ import { RestaurantsService } from 'src/app/services/restaurants.service';
   styleUrls: ['./listing.page.scss'],
 })
 export class ListingPage implements OnInit {
-
   restaurants: Restaurant[];
 
-  constructor(private router: Router, private restaurantService: RestaurantsService) { }
+  constructor(
+    private router: Router,
+    private restaurantService: RestaurantsService
+  ) {}
 
   ngOnInit() {
-    this.restaurants = this.restaurantService.getRestaurants();
+    this.restaurantService
+      .getRestaurants()
+      .subscribe((restaurants) => (this.restaurants = restaurants));
   }
 
   goToDetailPage(id: number) {
-    console.log(id)
+    console.log(id);
     this.router.navigate(['detail-restaurant', id]);
   }
 }

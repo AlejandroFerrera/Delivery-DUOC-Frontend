@@ -8,6 +8,7 @@ import { map } from 'rxjs/operators';
 })
 export class CartService {
   private items$ = new BehaviorSubject<CartItem[]>([]);
+  private cartQuantity$ = new BehaviorSubject<number>(0);
 
   getCart() {
     return this.items$.asObservable();
@@ -19,10 +20,12 @@ export class CartService {
 
   addToCart(newItem: CartItem) {
     this.items$.next([...this.items$.getValue(), newItem]);
+    this.cartQuantity$.next(this.cartQuantity$.getValue() + 1)
   }
 
   removeItem(id: number) {
     this.items$.next(this.items$.getValue().filter((item) => item.id !== id));
+    this.cartQuantity$.next(this.cartQuantity$.getValue() - 1)
   }
 
   changeQty(quantity: number, id: number) {
@@ -30,6 +33,7 @@ export class CartService {
     const index = items.findIndex((item) => item.id === id);
     items[index].quantity += quantity;
     this.items$.next(items);
+    this.cartQuantity$.next(this.cartQuantity$.getValue() + quantity);
   }
 
   getTotalAmount() {
@@ -46,15 +50,6 @@ export class CartService {
   }
 
   getTotalQuantity() {
-    return this.items$.pipe(
-      map((items) => {
-        let total = 0;
-        items.forEach((item) => {
-          total += item.quantity;
-        });
-
-        return total;
-      })
-    );
+    return this.cartQuantity$
   }
 }

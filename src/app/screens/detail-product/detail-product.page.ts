@@ -15,7 +15,13 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class DetailProductPage implements OnInit {
   id: number;
-  product: Product;
+  product: Product = {
+    id: 0,
+    price: 0,
+    title: '',
+    description: '',
+    image: '',
+  };
 
   constructor(
     private productService: ProductService,
@@ -28,7 +34,9 @@ export class DetailProductPage implements OnInit {
   }
 
   ngOnInit() {
-    this.product = this.productService.getProduct(this.id);
+    this.productService.getProduct(this.id).subscribe((product) => {
+      this.product = product;
+    });
   }
 
   goBack() {

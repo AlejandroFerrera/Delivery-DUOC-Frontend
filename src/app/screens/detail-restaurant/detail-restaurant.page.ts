@@ -12,7 +12,15 @@ import { RestaurantsService } from 'src/app/services/restaurants.service';
 })
 export class DetailRestaurantPage implements OnInit {
   id: number;
-  restaurant: Restaurant;
+  restaurant: Restaurant = {
+    id: 0,
+    calification: 0,
+    favorite: false,
+    image: '',
+    location: '',
+    logo: '',
+    title: '',
+  };
   products: Product[] = [];
 
   constructor(
@@ -25,9 +33,14 @@ export class DetailRestaurantPage implements OnInit {
   }
 
   ngOnInit() {
-    this.restaurant = this.restaurantService.getRestaurant(this.id);
-    this.products = this.productService.getProducts();
-    console.log(this.products);
+    this.restaurantService.getRestaurant(this.id).subscribe((restaurant) => {
+      this.restaurant = restaurant;
+    });
+    this.productService
+      .getProductsByRestaurant(this.id)
+      .subscribe((products) => {
+        this.products = products;
+      });
   }
 
   goToDetailPage(id: number) {
