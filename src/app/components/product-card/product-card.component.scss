@@ -1,8 +1,6 @@
-
-
 .card {
   width: 100%;
-  padding: .5rem .5rem;
+  padding: 0.5rem 0.5rem;
   background: white;
   display: flex;
   flex-direction: row;
@@ -19,10 +17,9 @@
     width: 50%;
     flex-grow: 2;
 
-
     .title {
       font-weight: 700;
-      font-size: .7rem;
+      font-size: 0.7rem;
       margin-bottom: 0.2rem;
       color: #1d1d1d;
       text-overflow: ellipsis;

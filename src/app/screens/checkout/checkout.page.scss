@@ -1,0 +1,23 @@
+ion-content {
+  --padding-start: 1.3rem;
+  --padding-end: 1.3rem;
+  --padding-top: 2rem;
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #515151;
+    margin: 0;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  ion-icon {
+    color: #ffb800;
+  }
+
+  span {
+    font-weight: 600;
+    color: #ffb800;
+  }
+}
+

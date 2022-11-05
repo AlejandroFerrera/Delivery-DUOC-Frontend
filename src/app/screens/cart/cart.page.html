@@ -23,7 +23,7 @@
   <!-- CHECKOUT BUTTON -->
   <div *ngIf="(cartItems$|async).length" class="checkout">
     <h4 class="ion-text-center">Total:<span> {{ totalAmount$| async |currency: 'CLP' }}</span></h4>
-    <app-button>Ir a pagar</app-button>
+    <app-button (click)="goToCheckout()">Ir a pagar</app-button>
 
   </div>
 </ion-content>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { CartItem } from 'src/app/models/cart-item.model';
@@ -11,12 +12,13 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CartPage implements OnInit {
   cartItems$: Observable<CartItem[]>;
-  cartQuantity: number;
   totalAmount$: Observable<number>;
+  cartQuantity: number;
 
   constructor(
     private cartService: CartService,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -56,5 +58,9 @@ export class CartPage implements OnInit {
       ],
     });
     alert.present();
+  }
+
+  goToCheckout() {
+    this.router.navigate(['checkout'])
   }
 }

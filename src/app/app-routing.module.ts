@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
   {
@@ -23,7 +23,7 @@ const routes: Routes = [
     path: 'detail-product',
     loadChildren: () => import('./screens/detail-product/detail-product.module').then( m => m.DetailProductPageModule)
   },
-  
+
   {
     path: 'login',
     loadChildren: () => import('./screens/login/login.module').then( m => m.LoginPageModule)
@@ -31,7 +31,11 @@ const routes: Routes = [
   {
     path: 'registro',
     loadChildren: () => import('./screens/registro/registro.module').then( m => m.RegistroPageModule)
+  },  {
+    path: 'checkout',
+    loadChildren: () => import('./screens/checkout/checkout.module').then( m => m.CheckoutPageModule)
   },
+
 
 ];
 

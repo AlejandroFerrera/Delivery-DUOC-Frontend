@@ -20,12 +20,12 @@ export class CartService {
 
   addToCart(newItem: CartItem) {
     this.items$.next([...this.items$.getValue(), newItem]);
-    this.cartQuantity$.next(this.cartQuantity$.getValue() + 1)
+    this.cartQuantity$.next(this.cartQuantity$.getValue() + 1);
   }
 
   removeItem(id: number) {
     this.items$.next(this.items$.getValue().filter((item) => item.id !== id));
-    this.cartQuantity$.next(this.cartQuantity$.getValue() - 1)
+    this.cartQuantity$.next(this.cartQuantity$.getValue() - 1);
   }
 
   changeQty(quantity: number, id: number) {
@@ -50,6 +50,6 @@ export class CartService {
   }
 
   getTotalQuantity() {
-    return this.cartQuantity$
+    return this.cartQuantity$;
   }
 }

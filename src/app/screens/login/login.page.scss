@@ -1,4 +1,27 @@
-.img{
-   margin-top: 70px;
+.img {
+  margin-top: 50px;
+  display: block;
+  display: flex;
+  justify-content: center;
+
+  ion-img {
+    height: 120px !important;
+    margin-bottom: 10px !important;
+  }
 }
 
+ion-card {
+  display: block;
+  margin-bottom: 12px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  ion-card-content {
+    padding-top: 0;
+
+
+    ion-item {
+      font-size: small;
+    }
+  }
+
+
+}

@@ -1,40 +1,47 @@
-
-
 <ion-content class="ion-text-center">
-<!--logo-->
-  <div class="img" >
-  <ion-img class="ion-text-center" style="height: 150px" src="assets/img/delivery.png" alt=""></ion-img>
+  <!--logo-->
+  <div class="img">
+    <ion-img
+      class="ion-text-center"
+      style="height: 150px"
+      src="assets/img/delivery.png"
+      alt=""
+    ></ion-img>
   </div>
-  <br>
-  <br>
+
   <ion-card>
     <ion-card-content>
-  <!--correo-->
-<ion-item >
-  <ion-label position="floating">Correo</ion-label>
-  <ion-input type="Correo" ngModel email></ion-input>
-  <ion-note slot="helper"> Ingrese correo</ion-note>
-  <ion-note slot="error">Correo inválido</ion-note>
-  </ion-item>
-  <br>
-  <!--contraseñe-->
-<ion-item>
-  <ion-label position="floating">Contraseña</ion-label>
-  <ion-input type="Password"></ion-input>
-  <ion-note slot="helper">Ingrese contraseña</ion-note>
-  <ion-note slot="error">Contraseña incorrecta</ion-note>
-</ion-item>
-</ion-card-content>
-</ion-card>
-<!--ingresar-->
-<div class="ion-text-center">
-<ion-button (click)="ingresar()" class="ingresar"color="tertiary" style="margin-top:10px;">INGRESAR</ion-button>
-</div>
-<!--registrar-->
-<div class="ion-text-center" style="margin-top:10px;">
-<h6>¿Aún no estás registrado?</h6>
-<ion-button (click)="registro()" color="warning" style="margin-top:10px;">¡REGISTRATE AQUÍ!</ion-button>
-</div>
+      <!--correo-->
+      <ion-item>
+        <ion-label position="floating">Correo</ion-label>
+        <ion-input type="Correo" ngModel email></ion-input>
+        <ion-note slot="helper"> Ingrese correo</ion-note>
+        <ion-note slot="error">Correo inválido</ion-note>
+      </ion-item>
+      <!--contraseñe-->
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="Password"></ion-input>
+        <ion-note slot="helper">Ingrese contraseña</ion-note>
+        <ion-note slot="error">Contraseña incorrecta</ion-note>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <!--ingresar-->
+  <div class="ion-text-center">
+    <ion-button
+      (click)="login()"
+      class="ingresar"
+      color="tertiary"
+      style="margin-top: 10px"
+      >INGRESAR</ion-button
+    >
+  </div>
+  <!--registrar-->
+  <div class="ion-text-center" style="margin-top: 10px">
+    <h6>¿Aún no estás registrado?</h6>
+    <ion-button (click)="register()" color="warning" style="margin-top: 10px"
+      >¡REGISTRATE AQUÍ!</ion-button
+    >
+  </div>
 </ion-content>
-
-

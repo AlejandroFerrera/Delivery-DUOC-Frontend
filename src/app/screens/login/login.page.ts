@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   FormGroup,
   FormControl,
   Validators,
-  FormBuilder
+  FormBuilder,
 } from '@angular/forms';
 
 @Component({
@@ -12,18 +13,22 @@ import {
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  formularioLogin: FormGroup;
 
-formularioLogin: FormGroup;
-
-  constructor(public fb: FormBuilder) { 
-
+  constructor(public fb: FormBuilder, private route: Router) {
     this.formularioLogin = this.fb.group({
-      'correo': new FormControl("",Validators.required),
-      'password': new FormControl("",Validators.required)
-    })
+      correo: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
+    });
   }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  login() {
+    this.route.navigate(['home']);
   }
 
+  register() {
+    return;
+  }
 }
