@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 export class CartService {
   private items$ = new BehaviorSubject<CartItem[]>([]);
   private cartQuantity$ = new BehaviorSubject<number>(0);
-  private restaurantId$ = new BehaviorSubject<number>(0);
+  private restaurantId = 0;
 
   getCart() {
     return this.items$.asObservable();
@@ -22,13 +22,13 @@ export class CartService {
   addToCart(newItem: CartItem) {
     this.items$.next([...this.items$.getValue(), newItem]);
     this.cartQuantity$.next(this.cartQuantity$.getValue() + 1);
-    this.restaurantId$.next(newItem.restaurant_id);
+    this.restaurantId = newItem.restaurant_id;
   }
 
   resetAndAdd(newItem: CartItem) {
     this.items$.next([newItem]);
     this.cartQuantity$.next(1);
-    this.restaurantId$.next(newItem.restaurant_id);
+    this.restaurantId = newItem.restaurant_id;
   }
 
   removeItem(id: number) {
@@ -62,10 +62,10 @@ export class CartService {
   }
 
   isFromSameRestaurant(newItemRestaurantId: number) {
-    return newItemRestaurantId === this.restaurantId$.getValue();
+    return newItemRestaurantId === this.restaurantId;
   }
 
   getRestaurantCartId() {
-    return this.restaurantId$.getValue();
+    return this.restaurantId;
   }
 }
