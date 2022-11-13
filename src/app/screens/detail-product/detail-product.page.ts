@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
 
 import { CartItem } from 'src/app/models/cart-item.model';
@@ -30,7 +30,8 @@ export class DetailProductPage implements OnInit {
     private cartService: CartService,
     private location: Location,
     private toastCtrl: ToastController,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private router: Router
   ) {
     this.id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
   }
@@ -76,9 +77,13 @@ export class DetailProductPage implements OnInit {
     const toast = await this.toastCtrl.create({
       message: 'Producto agregado al carro',
       mode: 'ios',
-      duration: 1000,
+      duration: 1500,
       position: 'top',
     });
+
+    toast.onclick = () => {
+      this.router.navigate(['home/cart']);
+    };
 
     toast.present();
   }
@@ -86,13 +91,16 @@ export class DetailProductPage implements OnInit {
   async resetCart(item: CartItem) {
     const alert = await this.alertCtrl.create({
       mode: 'ios',
-      header: 'Eliminar',
+      header: 'Vaciar carro',
       message:
         'El carro tiene productos de otro restaurante. Desea eliminarlos y agregar este?',
       buttons: [
         {
           text: 'Si',
-          handler: () => this.cartService.resetAndAdd(item),
+          handler: () => {
+            this.cartService.resetAndAdd(item);
+            this.presentToast();
+          },
         },
         {
           text: 'No',
