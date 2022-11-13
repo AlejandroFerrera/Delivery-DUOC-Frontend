@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 
 import { CartItem } from 'src/app/models/cart-item.model';
 import { Product } from 'src/app/models/product';
@@ -17,6 +17,7 @@ export class DetailProductPage implements OnInit {
   id: number;
   product: Product = {
     id: 0,
+    restaurant_id: 0,
     price: 0,
     title: '',
     description: '',
@@ -28,7 +29,8 @@ export class DetailProductPage implements OnInit {
     private activatedRoute: ActivatedRoute,
     private cartService: CartService,
     private location: Location,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    private alertCtrl: AlertController
   ) {
     this.id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
   }
@@ -46,11 +48,20 @@ export class DetailProductPage implements OnInit {
   addItemToCart() {
     const cartItem: CartItem = {
       id: this.product.id,
+      restaurant_id: this.product.restaurant_id,
       name: this.product.title,
       price: this.product.price,
       image: this.product.image,
       quantity: 1,
     };
+
+    if (
+      !this.cartService.isFromSameRestaurant(cartItem.restaurant_id) &&
+      this.cartService.getRestaurantCartId() !== 0
+    ) {
+      this.resetCart(cartItem);
+      return;
+    }
 
     const isInCart = this.cartService.isInCart(this.id);
 
@@ -70,5 +81,24 @@ export class DetailProductPage implements OnInit {
     });
 
     toast.present();
+  }
+
+  async resetCart(item: CartItem) {
+    const alert = await this.alertCtrl.create({
+      mode: 'ios',
+      header: 'Eliminar',
+      message:
+        'El carro tiene productos de otro restaurante. Desea eliminarlos y agregar este?',
+      buttons: [
+        {
+          text: 'Si',
+          handler: () => this.cartService.resetAndAdd(item),
+        },
+        {
+          text: 'No',
+        },
+      ],
+    });
+    alert.present();
   }
 }
