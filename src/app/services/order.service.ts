@@ -4,19 +4,21 @@ import { CartService } from './cart.service';
 import { Observable } from 'rxjs';
 import { CartItem } from '../models/cart-item.model';
 import { CartItemDTO } from '../models/cart-itemDTO.model';
+import { ShippingPrice } from '../models/shipping.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class OrderService {
   private orderUrl = 'http://127.0.0.1:8000/api/order';
+  private randomShippingURL = 'http://127.0.0.1:8000/api/random_shipping_price';
 
   private orderDetails: CartItemDTO[] = [];
 
   constructor(private http: HttpClient, private cartService: CartService) {}
 
   sendOrderDetails() {
-    this.orderDetails = []
+    this.orderDetails = [];
 
     this.cartService.getCart().subscribe((items) => {
       items.forEach((item) => {
@@ -29,5 +31,9 @@ export class OrderService {
     });
 
     return this.http.post<CartItemDTO[]>(this.orderUrl, this.orderDetails);
+  }
+
+  getRandomShippingPrice() {
+    return this.http.get<ShippingPrice>(this.randomShippingURL);
   }
 }

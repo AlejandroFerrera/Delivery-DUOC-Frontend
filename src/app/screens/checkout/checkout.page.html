@@ -6,11 +6,13 @@
   <ion-list>
     <ion-item>
       <ion-label> Costo de productos </ion-label>
-      <ion-label slot="end">{{ totalAmount$| async |currency:'CLP' }}</ion-label>
+      <ion-label slot="end"
+        >{{ totalAmount$| async |currency:'CLP' }}</ion-label
+      >
     </ion-item>
     <ion-item>
       <ion-label> Costo de envío </ion-label>
-      <ion-label slot="end">CLP 500</ion-label>
+      <ion-label slot="end">{{ shippingPrice | currency:'CLP' }}</ion-label>
     </ion-item>
     <ion-item>
       <ion-label> Tarifa de servicio </ion-label>
