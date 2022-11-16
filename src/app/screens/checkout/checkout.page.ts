@@ -12,8 +12,9 @@ import { OrderService } from 'src/app/services/order.service';
 })
 export class CheckoutPage implements OnInit {
   cartItems$: Observable<CartItem[]>;
-  totalAmount$: Observable<number>;
+  totalAmount: number = 0;
   shippingPrice: number = 0;
+  commissionValue: number = 0;
 
   constructor(
     private cartService: CartService,
@@ -21,13 +22,18 @@ export class CheckoutPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.totalAmount$ = this.cartService.getTotalAmount();
     this.cartItems$ = this.cartService.getCart();
-    this.orderService.getRandomShippingPrice().subscribe((data: ShippingPrice) => {
-      this.shippingPrice = data.price;
-      console.log(data.price)
+
+    this.orderService
+      .getRandomShippingPrice()
+      .subscribe((data: ShippingPrice) => {
+        this.shippingPrice = data.price;
+      });
+
+    this.cartService.getTotalAmount().subscribe((total) => {
+      this.totalAmount = total;
+      this.commissionValue = total * 0.03;
     });
-    console.log(this.shippingPrice);
   }
 
   confirmOrder() {
