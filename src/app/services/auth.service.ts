@@ -9,7 +9,7 @@ import { tap } from 'rxjs/operators';
 })
 export class AuthService {
   private loginUrl: string = 'http://localhost:8000/api/login';
-  private loginSuccess: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  private loginSuccess$: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor(private http: HttpClient) {}
 
@@ -20,9 +20,9 @@ export class AuthService {
 
       localStorage.setItem('token', token);
       localStorage.setItem('id', id.toString());
-      this.loginSuccess.next(true);
+      this.loginSuccess$.next(true);
     } catch (error) {
-      this.loginSuccess.next(false);
+      this.loginSuccess$.next(false);
     }
   }
 
@@ -37,12 +37,12 @@ export class AuthService {
   }
 
   isLogedIn() {
-    return this.loginSuccess.value;
+    return this.loginSuccess$.value;
   }
 
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('id');
-    this.loginSuccess.next(false);
+    this.loginSuccess$.next(false);
   }
 }

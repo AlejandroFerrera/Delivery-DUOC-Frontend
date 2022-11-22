@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuardService } from './services/auth.guard';
 
 const routes: Routes = [
   {
@@ -18,25 +19,35 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () =>
       import('./home/home.module').then((m) => m.HomePageModule),
+    canActivate: [AuthGuardService]
   },
   {
     path: 'detail-product',
-    loadChildren: () => import('./screens/detail-product/detail-product.module').then( m => m.DetailProductPageModule)
+    loadChildren: () =>
+      import('./screens/detail-product/detail-product.module').then(
+        (m) => m.DetailProductPageModule
+      ),
   },
 
   {
     path: 'login',
-    loadChildren: () => import('./screens/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () =>
+      import('./screens/login/login.module').then((m) => m.LoginPageModule),
   },
   {
     path: 'registro',
-    loadChildren: () => import('./screens/registro/registro.module').then( m => m.RegistroPageModule)
-  },  {
-    path: 'checkout',
-    loadChildren: () => import('./screens/checkout/checkout.module').then( m => m.CheckoutPageModule)
+    loadChildren: () =>
+      import('./screens/registro/registro.module').then(
+        (m) => m.RegistroPageModule
+      ),
   },
-
-
+  {
+    path: 'checkout',
+    loadChildren: () =>
+      import('./screens/checkout/checkout.module').then(
+        (m) => m.CheckoutPageModule
+      ),
+  },
 ];
 
 @NgModule({
